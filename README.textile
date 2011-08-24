@@ -1,0 +1,26 @@
+h2. Simple AdHoc Network Simulator
+
+While looking around the net, I found this very simple and nice Simulator for experimenting with AdHoc Networks.
+It appears it was originally developed by the ETH Zurich Distributed Computing group around 2002. You can read more about it
+here: http://dcg.ethz.ch/publications/edmedia05.pdf
+
+It provides a nice GUI and the ability to write you network code as you would normally without any reference to the
+Emulator.
+
+h3. Requirements
+
+* Java
+* Ant (optional)
+
+h3. Getting Started
+
+1. Build the source via Ant: "ant jar"
+
+2. Double click on the jar to start the apps
+
+
+
+
+
+    
+ 

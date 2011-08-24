@@ -1,0 +1,30 @@
+<project default="jar">
+    <property file="build.properties"/>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${build.dir}/classes"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}/classes"/>
+    </target>
+
+    <!-- Make an executable Jar -->
+    <target name="jar" depends="compile">
+        <mkdir dir="${build.dir}/jar"/>
+        <jar destfile="${build.dir}/jar/${jar.name}_${version}.jar" basedir="${build.dir}/classes">
+            <manifest>
+                <attribute name="Main-Class" value="mobicomp.emu.Emulator"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- make a zip with jar, readme, and doc -->
+    <target name="dist" depends="jar">
+        <copy todir="${dist.dir}" file="${build.dir}/jar/${jar.name}_${version}.jar"/>
+        <copy todir="${dist.dir}" file="README.textile"/>
+        <copy todir="${dist.dir}" file="doc/san.pdf"/>
+        <zip destfile="${build.dir}/${jar.name}_${version}.zip" basedir="${dist.dir}"/>
+    </target>
+</project>
